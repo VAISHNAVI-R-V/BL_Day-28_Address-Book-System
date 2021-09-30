@@ -35,7 +35,9 @@ public class AddressBookMain {
             System.out.println("8. Read in A File");
             System.out.println("9. Write in A CSV File");
             System.out.println("10. Read in A CSV File");
-            System.out.println("11. Exit");
+            System.out.println("11. Write in A JSON File");
+            System.out.println("12. Read in A JSON File");
+            System.out.println("13. Exit");
             System.out.print("Enter Your choice: ");
             int choice = sc.nextInt();
             sc.nextLine();
@@ -92,6 +94,20 @@ public class AddressBookMain {
                     bookCSV.readDataToCSV();
                     break;
                 case 11:
+                    try {
+                        AddressBookJSON.writeDataToJSon();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 12:
+                    try {
+                        AddressBookJSON.readDataFromJson();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 13:
                     sc.close();//for closing the programme
                     return;
                 default:
