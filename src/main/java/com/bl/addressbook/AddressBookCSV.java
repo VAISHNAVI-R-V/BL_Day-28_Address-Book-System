@@ -16,10 +16,16 @@ import java.nio.file.Paths;
 
 import static com.bl.addressbook.AddressBook.contactList;
 
-/**
- * @param
- */
 public class AddressBookCSV {
+    /**
+     *
+     * @purpose: to read data from CSV file.
+     * @param: writeDataToCSV.
+     *
+     * @throws IOException
+     * @throws CsvRequiredFieldEmptyException
+     * @throws CsvDataTypeMismatchException
+     */
     public static void writeDataToCSV() throws IOException, CsvRequiredFieldEmptyException, CsvDataTypeMismatchException {
         try (Writer writer = Files.newBufferedWriter(Paths.get("Contacts.csv"));) {
             StatefulBeanToCsvBuilder<Contacts> builder = new StatefulBeanToCsvBuilder<>(writer);
@@ -31,6 +37,13 @@ public class AddressBookCSV {
         }
     }
 
+    /**
+     *
+     * @purpose: to read data from CSV file.
+     * @param: readDataToCSV
+     *
+     *  @throws IOException
+     */
     public static void readDataToCSV() throws IOException {
         try (Reader reader = Files.newBufferedReader(Paths.get("Contacts.csv"));
 
